@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
 
 /**
  * _strcpy - Function that prints copies a string character.
