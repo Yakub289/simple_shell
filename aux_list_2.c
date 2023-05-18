@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
 
 /**
  * list_length - Write a function that determines that length of linked list.
