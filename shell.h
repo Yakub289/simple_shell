@@ -117,12 +117,12 @@ typedef struct builtin
 } builtin_s;
 
 /* shell_loop.c */
-int hsh(var_s *, char **);
+int sh_file(var_s *, char **);
 int get_builtin(var_s *);
 void get_cmd(var_s *);
 void fork_cmd(var_s *);
 
-/* syn_anly */
+/* syn_anly.c */
 int syn_cmd(var_s *, char *);
 char *path_access(var_s*, char*, char*);
 char *syn_char(char*, int, int);
@@ -130,7 +130,7 @@ char *syn_char(char*, int, int);
 /* aux_loop.c */
 int aux_loop(char **);
 
-/* error_handler.c  */
+/* error_handle.c  */
 void _post(char *);
 int _postchar(char);
 int _postfl(char c, int fl);
@@ -237,7 +237,7 @@ ssize_t read_b(var_s *, char *, size_t *);
 ssize_t input_buffer(var_s *, char **, size_t *);
 
 /* aux_strint.c */
-int interactive(var_s *);
+int responsive(var_s *);
 int is_token(char, char *);
 int is_text(int);
 int _ato(char *);
