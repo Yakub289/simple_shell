@@ -86,7 +86,7 @@ void conf_chain(var_s *vars, char *buf, size_t *b, size_t x, size_t len)
 int swap_alias(var_s *vars)
 {
 	int x;
-	list_s *node;
+	list_t *node;
 	char *b;
 
 	for (x = 0; x < 10; x++)
@@ -116,7 +116,7 @@ int swap_alias(var_s *vars)
 int swap_var(var_s *vars)
 {
 	int x = 0;
-	list_s *node;
+	list_t *node;
 
 	for (x = 0; vars->argv[x]; x++)
 	{
