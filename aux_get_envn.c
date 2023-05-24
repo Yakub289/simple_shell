@@ -30,7 +30,7 @@ char **get_envn(var_s *vars)
  */
 int _unsetenv(var_s *vars, char *stg)
 {
-	list_s *node = vars->env;
+	list_t *node = vars->env;
 	size_t x = 0;
 	char *b;
 
@@ -65,7 +65,7 @@ int _unsetenv(var_s *vars, char *stg)
 int _setenv(var_s *vars, char *stg, char *value)
 {
 	char *buf = NULL;
-	list_s *node;
+	list_t *node;
 	char *b;
 
 	if (!stg || !value)
