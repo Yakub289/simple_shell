@@ -38,7 +38,7 @@ int write_hist(var_s *vars)
 {
 	ssize_t fl;
 	char *filename = fetch_history(vars);
-	list_s *node = NULL;
+	list_t *node = NULL;
 
 	if (!filename)
 		return (-1);
@@ -116,7 +116,7 @@ int read_hist(var_s *vars)
  */
 int build_hlist(var_s *vars, char *buf, int l_count)
 {
-	list_s *node = NULL;
+	list_t *node = NULL;
 
 	if (vars->history)
 		node = vars->history;
@@ -135,7 +135,7 @@ int build_hlist(var_s *vars, char *buf, int l_count)
  */
 int num_history(var_s *vars)
 {
-	list_s *node = vars->history;
+	list_t *node = vars->history;
 	int x = 0;
 
 	while (node)
