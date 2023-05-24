@@ -10,7 +10,7 @@
  * @p: Show pointer of the first node.
  * Return: size of list.
  */
-size_t list_length(const list_s *p)
+size_t list_length(const list_t *p)
 {
 	size_t x = 0;
 
@@ -27,9 +27,9 @@ size_t list_length(const list_s *p)
  * @p: Show pointer of the first node.
  * Return: array of strings.
  */
-char **list_strings(list_s *p)
+char **list_strings(list_t *p)
 {
-	list_s *node = p;
+	list_t *node = p;
 	size_t x = list_length(p), y;
 	char **strs;
 	char *str;
@@ -63,7 +63,7 @@ char **list_strings(list_s *p)
  * @p: Show pointer of the first node.
  * Return: size of list.
  */
-size_t print_list(const list_s *p)
+size_t print_list(const list_t *p)
 {
 	size_t x = 0;
 
@@ -87,7 +87,7 @@ size_t print_list(const list_s *p)
  * @c: the next character after prefix to match.
  * Return: match node or null.
  */
-list_s *node_begins_at(list_s *node, char *prefix, char c)
+list_t *node_begins_at(list_t *node, char *prefix, char c)
 {
 	char *p = NULL;
 
@@ -107,7 +107,7 @@ list_s *node_begins_at(list_s *node, char *prefix, char c)
  * @node: pointer to the node.
  * Return: index of node or -1
  */
-ssize_t get_node(list_s *p, list_s *node)
+ssize_t get_node(list_t *p, list_t *node)
 {
 	size_t x = 0;
 
