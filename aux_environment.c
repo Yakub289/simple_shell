@@ -26,7 +26,7 @@ int _ssenv(var_s *vars)
  */
 char *_getenv(var_s *vars, const char *name)
 {
-	list_s *node = vars->env;
+	list_t *node = vars->env;
 	char *b;
 
 	while (node)
@@ -89,7 +89,7 @@ int _ssunsetenv(var_s *vars)
  */
 int load_envl(var_s *vars)
 {
-	list_s *node = NULL;
+	list_t *node = NULL;
 	size_t x;
 
 	for (x = 0; environ[x]; x++)
