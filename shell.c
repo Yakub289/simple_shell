@@ -14,7 +14,8 @@
 
 int main(int ac, char **av)
 {
-	var_s vars[] = {{"VARS_INIT"}};
+	var_s vars[] = {{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0,
+		NULL, NULL, 0, 0, 0, 0, 0}};
 	int fl = 2;
 
 	asm ("mov %1, %0\n\t"
