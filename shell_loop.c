@@ -6,14 +6,14 @@
 #include <limits.h>
 
 /**
- * hsh - Main shell.
+ * sh_file - Main shell.
  * @vars: struct variable.
  * @av: the argument vector.
  *
  * Return: 0 on success, 1 on error, or error code
  */
 
-int hsh(var_s *vars, char **av)
+int sh_file(var_s *vars, char **av)
 {
 	ssize_t p = 0;
 	int builtin_ret = 0;
@@ -21,7 +21,7 @@ int hsh(var_s *vars, char **av)
 	while (p != -1 && builtin_ret != -2)
 	{
 		erase_var(vars);
-		if (interactive(vars))
+		if (responsive(vars))
 			_puts("$ ");
 		_postchar(BUF_FLUSH);
 		p = get_input(vars);
@@ -32,13 +32,13 @@ int hsh(var_s *vars, char **av)
 			if (builtin_ret == -1)
 				get_cmd(vars);
 		}
-		else if (interactive(vars))
+		else if (responsive(vars))
 			_putchar('\n');
 		free_var(vars, 0);
 	}
 	write_hist(vars);
 	free_var(vars, 1);
-	if (!interactive(vars) && vars->status)
+	if (!responsive(vars) && vars->status)
 		exit(vars->status);
 	if (builtin_ret == -2)
 	{
@@ -115,7 +115,7 @@ void get_cmd(var_s *vars)
 	}
 	else
 	{
-		if ((interactive(vars) || _getenv(vars, "PATH=")
+		if ((responsive(vars) || _getenv(vars, "PATH=")
 			|| vars->argv[0][0] == '/') && syn_cmd(vars, vars->argv[0]))
 			fork_cmd(vars);
 		else if (*(vars->arg) != '\n')
