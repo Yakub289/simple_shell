@@ -70,7 +70,7 @@ int set_ali(var_s *vars, char *str)
  *
  * Return: ) if successful or 1 if failed.
  */
-int print_ali(list_s *node)
+int print_ali(list_t *node)
 {
 	char *b = NULL, *a = NULL;
 
@@ -98,7 +98,7 @@ int _ssalias(var_s *vars)
 {
 	int x = 0;
 	char *b = NULL;
-	list_s *node = NULL;
+	list_t *node = NULL;
 
 	if (vars->argc == 1)
 	{
