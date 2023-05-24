@@ -117,7 +117,7 @@ typedef struct builtin
 } builtin_s;
 
 /* shell_loop.c */
-int sh_file(var_s *, char **);
+int hsh(var_s *, char **);
 int get_builtin(var_s *);
 void get_cmd(var_s *);
 void fork_cmd(var_s *);
@@ -237,7 +237,7 @@ ssize_t read_b(var_s *, char *, size_t *);
 ssize_t input_buffer(var_s *, char **, size_t *);
 
 /* aux_strint.c */
-int responsive(var_s *);
+int interactive(var_s *);
 int is_token(char, char *);
 int is_text(int);
 int _ato(char *);
