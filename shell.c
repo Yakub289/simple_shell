@@ -45,7 +45,7 @@ int main(int ac, char **av)
 	}
 	load_envl(vars);
 	read_hist(vars);
-	sh_file(vars, av);
+	hsh(vars, av);
 
 	return (EXIT_SUCCESS);
 }
