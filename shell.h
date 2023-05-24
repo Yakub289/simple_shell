@@ -48,7 +48,7 @@ typedef struct liststr
 	int num;
 	char *str;
 	struct liststr *next;
-} list_s;
+} list_t;
 
 /**
  * struct variable - Function will have arguements to pass into a another
@@ -87,9 +87,9 @@ typedef struct variable
 	char **environ;
 	int env_change;
 	int status;
-	list_s *env;
-	list_s *history;
-	list_s *alias;
+	list_t *env;
+	list_t *history;
+	list_t *alias;
 
 	/* pointer access address to cmd ; chain buffer, for memory mangement */
 	char **cmd_buf;
@@ -175,7 +175,7 @@ int _sshistory(var_s *);
 int _ssalias(var_s *);
 int unset_ali(var_s *, char *);
 int set_ali(var_s *, char *);
-int print_ali(list_s *node);
+int print_ali(list_t *node);
 
 /* aux_error_1.c */
 int _err_ato(char *);
@@ -185,18 +185,18 @@ char *trans_number(long int, int, int);
 void delete_comment(char *);
 
 /* aux_list_1.c */
-list_s *add_node(list_s **, const char *, int);
-list_s *add_end(list_s **, const char *, int);
-int del_node(list_s **, unsigned int);
-size_t print_ls(const list_s *);
-void free_lists(list_s **);
+list_t *add_node(list_t **, const char *, int);
+list_t *add_end(list_t **, const char *, int);
+int del_node(list_t **, unsigned int);
+size_t print_ls(const list_t *);
+void free_lists(list_t **);
 
 /* aux_list_2.c */
-size_t list_length(const list_s *);
-char **list_strings(list_s *);
-list_s *node_begins_at(list_s *, char *, char);
-ssize_t get_node(list_s *, list_s *);
-size_t print_list(const list_s *);
+size_t list_length(const list_t *);
+char **list_strings(list_t *);
+list_t *node_begins_at(list_t *, char *, char);
+ssize_t get_node(list_t *, list_t *);
+size_t print_list(const list_t *);
 
 /* aux_history.c */
 char *fetch_history(var_s *vars);
