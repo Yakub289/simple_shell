@@ -5,7 +5,7 @@
 #include <string.h>
 
 /**
- * is_chain - Function that will test to know if the current character
+ * in_chain - Function that will test to know if the current character
  * in a buffer is a chain token.
  * @vars: struct variable.
  * @buf: the char buffer.
@@ -13,7 +13,7 @@
  *
  * Return: 1 if successful to  chain toke or, 0 if failed.
  */
-int is_chain(var_s *vars, char *buf, size_t *b)
+int in_chain(var_s *vars, char *buf, size_t *b)
 {
 	size_t y = *b;
 
