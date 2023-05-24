@@ -68,7 +68,7 @@ int set_ali(var_s *vars, char *str)
  * print_ali - Function that will print alias string.
  * @node: alias node.
  *
- * Return: ) if successful or 1 if failed.
+ * Return: 0 if successful or 1 if failed.
  */
 int print_ali(list_t *node)
 {
