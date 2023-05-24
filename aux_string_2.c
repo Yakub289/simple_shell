@@ -83,5 +83,14 @@ void _puts(char *str)
  */
 int _putchar(char c)
 {
-	return (write(1, &c, 1));
+	static int x;
+	static char buf[WRITE_BUF_SIZE];
+	if (c == BUF_FLUSH || x >= WRITE_BUF_SIZE)
+	{
+		write(1, buf, x);
+		x = 0;
+	}
+	if (c != BUF_FLUSH)
+		buf[x++] = c;
+	return (1);
 }
