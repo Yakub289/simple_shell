@@ -12,6 +12,7 @@
  *
  * Return: 0 on success, 1 on error, or error code
  */
+
 int hsh(var_s *vars, char **av)
 {
 	ssize_t p = 0;
@@ -81,12 +82,14 @@ int get_builtin(var_s *vars)
 		}
 	return (built_in_ret);
 }
+
 /**
  * get_cmd - Write a command that find its PATH(Gateway).
  * @vars: struct variable.
  *
  * Return: Void.
  */
+
 void get_cmd(var_s *vars)
 {
 	char *path = NULL;
@@ -122,12 +125,14 @@ void get_cmd(var_s *vars)
 		}
 	}
 }
+
 /**
  * fork_cmd - A function that fork command to enable its running.
  * @vars: struct variable.
  *
  * Return: Void.
  */
+
 void fork_cmd(var_s *vars)
 {
 	pid_t child_pid;
