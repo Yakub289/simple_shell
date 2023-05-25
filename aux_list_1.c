@@ -146,17 +146,17 @@ int del_node(list_t **head, unsigned int index)
 
 /**
  * free_lists -  Function that will free nodes of list.
- * @head_pt: address to access pointer to node.
+ * @head_ptr: address to access pointer to node.
  *
  * Return:  void.
  */
-void free_lists(list_t **head_pt)
+void free_lists(list_t **head_ptr)
 {
 	list_t *node, *next_n, *head;
 
-	if (!head_pt || !*head_pt)
+	if (!head_ptr || !*head_ptr)
 		return;
-	head = *head_pt;
+	head = *head_ptr;
 	node = head;
 	while (node)
 	{
@@ -166,5 +166,5 @@ void free_lists(list_t **head_pt)
 		node = next_n;
 	}
 
-	*head_pt = NULL;
+	*head_ptr = NULL;
 }
