@@ -123,7 +123,7 @@ ssize_t read_b(var_s *vars, char *buf, size_t *x)
  *
  * Return: p
  */
-int _getlines(var_s *vars, char **pt, size_t *length)
+int _getlines(var_s *vars, char **ptr, size_t *length)
 {
 	static char buf[READ_BUF_SIZE];
 	static size_t x, len;
