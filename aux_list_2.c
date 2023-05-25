@@ -103,19 +103,19 @@ list_t *node_begins_at(list_t *node, char *prefix, char c)
 
 /**
  * get_node - Write a function that gets the index of a node.
- * @p: Show pointer of the first node.
+ * @head: Show pointer of the first node.
  * @node: pointer to the node.
  * Return: index of node or -1
  */
-ssize_t get_node(list_t *p, list_t *node)
+ssize_t get_node(list_t *head, list_t *node)
 {
 	size_t x = 0;
 
-	while (p)
+	while (head)
 	{
-		if (p == node)
+		if (head == node)
 			return (x);
-		p = p->next;
+		head = head->next;
 		x++;
 	}
 	return (-1);
