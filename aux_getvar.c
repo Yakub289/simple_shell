@@ -60,7 +60,7 @@ void fix_var(var_s *vars, char **av)
  */
 void free_var(var_s *vars, int full)
 {
-	free(vars->argv);
+	s_free(vars->argv);
 	vars->argv = NULL;
 	vars->path = NULL;
 
@@ -74,9 +74,9 @@ void free_var(var_s *vars, int full)
 			free_lists(&(vars->history));
 		if (vars->alias)
 			free_lists(&(vars->alias));
-		free(vars->environ);
+		s_free(vars->environ);
 			vars->environ = NULL;
-		free((void **)vars->cmd_buf);
+		aux_free((void **)vars->cmd_buf);
 
 		if (vars->read_fl > 2)
 			close(vars->read_fl);
