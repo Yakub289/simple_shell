@@ -6,14 +6,14 @@
 #include <limits.h>
 
 /**
- * sh_file - Main shell.
+ * hsh - Main shell.
  * @vars: struct variable.
  * @av: the argument vector.
  *
  * Return: 0 on success, 1 on error, or error code
  */
 
-int sh_file(var_s *vars, char **av)
+int hsh(var_s *vars, char **av)
 {
 	ssize_t p = 0;
 	int builtin_ret = 0;

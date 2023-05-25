@@ -117,18 +117,15 @@ typedef struct builtin
 } builtin_s;
 
 /* shell_loop.c */
-int sh_file(var_s *, char **);
+int hsh(var_s *, char **);
 int get_builtin(var_s *);
 void get_cmd(var_s *);
 void fork_cmd(var_s *);
 
 /* syn_anly.c */
 int syn_cmd(var_s *, char *);
-char *path_access(var_s*, char*, char*);
+char *path_access(var_s *, char *, char *);
 char *syn_char(char*, int, int);
-
-/* aux_loop.c */
-int aux_loop(char **);
 
 /* error_handle.c  */
 void _post(char *);

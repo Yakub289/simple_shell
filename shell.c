@@ -15,7 +15,7 @@
 int main(int ac, char **av)
 {
 	var_s vars[] = {{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0,
-		NULL, NULL, 0, 0, 0, 0, 0}};
+                NULL, NULL, 0, 0, 0, 0, 0}};
 	int fl = 2;
 
 	asm ("mov %1, %0\n\t"
@@ -45,7 +45,7 @@ int main(int ac, char **av)
 	}
 	load_envl(vars);
 	read_hist(vars);
-	sh_file(vars, av);
+	hsh(vars, av);
 
 	return (EXIT_SUCCESS);
 }
