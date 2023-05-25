@@ -6,16 +6,16 @@
 
 /**
  * aux_free - Function that will free a pointer and ineffect address.
- * @pt: address to access pointer to free.
+ * @ptr: address to access pointer to free.
  *
  * Return: 1 if free or Nothing 0.
  */
-int aux_free(void **pt)
+int aux_free(void **ptr)
 {
-	if (pt && *pt)
+	if (ptr && *ptr)
 	{
-		free(*pt);
-		*pt = NULL;
+		free(*ptr);
+		*ptr = NULL;
 		return (1);
 	}
 
