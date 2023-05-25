@@ -103,7 +103,7 @@ char *trans_number(long int num, int base, int flags)
 	static char *array;
 	static char buffer[50];
 	char sign = 0;
-	char *pt;
+	char *ptr;
 	unsigned long digit = num;
 
 	if (!(flags & CONVERT_UNSIGNED) && num < 0)
@@ -112,17 +112,17 @@ char *trans_number(long int num, int base, int flags)
 		sign = '-';
 	}
 	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
-	pt = &buffer[49];
-	*pt = '\0';
+	ptr = &buffer[49];
+	*ptr = '\0';
 
 	do	{
-		*--pt = array[digit % base];
+		*--ptr = array[digit % base];
 		digit /= base;
 	} while (digit != 0);
 
 	if (sign)
-		*--pt = sign;
-	return (pt);
+		*--ptr = sign;
+	return (ptr);
 }
 
 /**
