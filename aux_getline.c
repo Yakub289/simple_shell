@@ -3,7 +3,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
-
 /**
  * input_buffer - Function that will print buffer chained commands.
  * @vars: struct variable contains arguements.
@@ -16,7 +15,6 @@ ssize_t input_buffer(var_s *vars, char **buf, size_t *len)
 {
 	ssize_t u = 0;
 	size_t len_num = 0;
-
 	if (!*len)
 	{
 		free(*buf);
@@ -44,10 +42,8 @@ ssize_t input_buffer(var_s *vars, char **buf, size_t *len)
 			}
 		}
 	}
-
 	return (u);
 }
-
 /**
  * get_input - Function that will gets a line exempting the newline.
  * @vars: struct variable contains arguements.
@@ -60,7 +56,6 @@ ssize_t get_input(var_s  *vars)
 	static size_t x, y, len;
 	ssize_t u = 0;
 	char **buf_p = &(vars->arg), *b;
-
 	_putchar(BUF_FLUSH);
 	u = input_buffer(vars, &buf, &len);
 	if (u == -1) /* EOF */
@@ -69,7 +64,6 @@ ssize_t get_input(var_s  *vars)
 	{
 		y = x;
 		b = buf + x;
-
 		conf_chain(vars, buf, &y, x, len);
 		while (y < len)
 		{
@@ -77,23 +71,18 @@ ssize_t get_input(var_s  *vars)
 				break;
 			y++;
 		}
-
 		x = y + 1;
 		if (x >= len)
 		{
 			x = len = 0; /* position and length resetting*/
 			vars->cmd_buf_types = CMD_NORM;
 		}
-
 		*buf_p = b;
 		return (_strlen(b));
 	}
-
 	*buf_p = buf;
-
 	return (u);
 }
-
 /**
  * read_b - Function that will reads into a buffer.
  * @vars: struct variable contains arguements.
@@ -105,16 +94,13 @@ ssize_t get_input(var_s  *vars)
 ssize_t read_b(var_s *vars, char *buf, size_t *x)
 {
 	ssize_t u = 0;
-
 	if (*x)
 		return (0);
 	u = read(vars->read_fl, buf, READ_BUF_SIZE);
 	if (u >= 0)
 		*x = u;
-
 	return (u);
 }
-
 /**
  * _getlines - Function that will print the next line of input from STDIN.
  * @vars: struct variable contains arguement.
@@ -130,17 +116,14 @@ int _getlines(var_s *vars, char **ptr, size_t *length)
 	size_t z;
 	ssize_t u = 0, p = 0;
 	char *b = NULL, *new_b = NULL, *e;
-
 	b = *ptr;
 	if (b && length)
 		p = *length;
 	if (x == len)
 		x = len = 0;
-
 	u = read_b(vars, buf, &len);
 	if (u == -1 || (u == 0 && len == 0))
 		return (-1);
-
 	e = _strchr(buf + x, '\n');
 	z = e ? 1 + (unsigned int)(e - buf) : len;
 	new_b = _realloc_shell(b, p, p ? p + z : z + 1);
@@ -150,17 +133,14 @@ int _getlines(var_s *vars, char **ptr, size_t *length)
 		_strncat(new_b, buf + x, z - x);
 	else
 		_strncpy(new_b, buf + x, z - x + 1);
-
 	p += z - x;
 	x = z;
 	b = new_b;
 	if (length)
 		*length = p;
 	*ptr = b;
-
 	return (p);
 }
-
 /**
  * sig_handle - Function that will print a  blocked Ctrl + C.
  * @sig_num: signal number character.
