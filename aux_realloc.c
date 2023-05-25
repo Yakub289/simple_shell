@@ -42,22 +42,22 @@ void s_free(char **ss)
 
 /**
  * _realloc_shell - Write a function that reallocates memory block.
- * @pt: pointer that will access old allocated memory.
+ * @ptr: pointer that will access old allocated memory.
  * @old_v: size of old block.
  * @new_v: size of new block.
  *
  * Return: pointer that accessed the old block.
  */
-void *_realloc_shell(void *pt, unsigned int old_v, unsigned int new_v)
+void *_realloc_shell(void *ptr, unsigned int old_v, unsigned int new_v)
 {
 	char *b;
 
-	if (!pt)
+	if (!ptr)
 		return (malloc(new_v));
 	if (!new_v)
-		return (free(pt), NULL);
+		return (free(ptr), NULL);
 	if (new_v == old_v)
-		return (pt);
+		return (ptr);
 
 	b = malloc(new_v);
 	if (!b)
@@ -65,7 +65,7 @@ void *_realloc_shell(void *pt, unsigned int old_v, unsigned int new_v)
 
 	old_v = old_v < new_v ? old_v : new_v;
 	while (old_v--)
-		b[old_v] = ((char *)pt)[old_v];
-	free(pt);
+		b[old_v] = ((char *)ptr)[old_v];
+	free(ptr);
 	return (b);
 }
