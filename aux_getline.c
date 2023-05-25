@@ -118,7 +118,7 @@ ssize_t read_b(var_s *vars, char *buf, size_t *x)
 /**
  * _getlines - Function that will print the next line of input from STDIN.
  * @vars: struct variable contains arguement.
- * @pt: address of pointer to access buffer.
+ * @ptr: address of pointer to access buffer.
  * @length: size of pre-allocated pt buffer.
  *
  * Return: p
@@ -131,7 +131,7 @@ int _getlines(var_s *vars, char **pt, size_t *length)
 	ssize_t u = 0, p = 0;
 	char *b = NULL, *new_b = NULL, *e;
 
-	b = *pt;
+	b = *ptr;
 	if (b && length)
 		p = *length;
 	if (x == len)
@@ -156,7 +156,7 @@ int _getlines(var_s *vars, char **pt, size_t *length)
 	b = new_b;
 	if (length)
 		*length = p;
-	*pt = b;
+	*ptr = b;
 
 	return (p);
 }
