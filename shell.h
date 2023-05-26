@@ -236,7 +236,7 @@ ssize_t input_buffer(var_s *, char **, size_t *);
 /* aux_strint.c */
 int responsive(var_s *);
 int is_token(char, char *);
-int is_text(int);
+int _is_text(int);
 int _ato(char *);
 
 
