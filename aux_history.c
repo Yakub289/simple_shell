@@ -120,7 +120,7 @@ int build_hlist(var_s *vars, char *buf, int l_count)
 
 	if (vars->history)
 		node = vars->history;
-	add_node(&node, buf, l_count);
+	add_end(&node, buf, l_count);
 
 	if (!vars->history)
 		vars->history = node;
