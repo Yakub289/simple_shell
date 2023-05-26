@@ -35,12 +35,12 @@ int is_token(char e, char *delim)
 }
 
 /**
- * _is_text - Function that will checks for text character.
+ * is_text - Function that will checks for text character.
  * @e: input character.
  *
  * Return: 1 if e is alphabet or 0 if failed.
  */
-int _is_text(int e)
+int is_text(int e)
 {
 	if ((e >= 'a' && e <= 'z') || (e >= 'A' && e <= 'Z'))
 		return (1);

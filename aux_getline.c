@@ -15,6 +15,7 @@ ssize_t input_buffer(var_s *vars, char **buf, size_t *len)
 {
 	ssize_t u = 0;
 	size_t len_num = 0;
+
 	if (!*len)
 	{
 		free(*buf);
@@ -56,6 +57,7 @@ ssize_t get_input(var_s  *vars)
 	static size_t x, y, len;
 	ssize_t u = 0;
 	char **buf_p = &(vars->arg), *b;
+
 	_putchar(BUF_FLUSH);
 	u = input_buffer(vars, &buf, &len);
 	if (u == -1) /* EOF */
@@ -94,6 +96,7 @@ ssize_t get_input(var_s  *vars)
 ssize_t read_b(var_s *vars, char *buf, size_t *x)
 {
 	ssize_t u = 0;
+
 	if (*x)
 		return (0);
 	u = read(vars->read_fl, buf, READ_BUF_SIZE);
@@ -116,6 +119,7 @@ int _getlines(var_s *vars, char **ptr, size_t *length)
 	size_t z;
 	ssize_t u = 0, p = 0;
 	char *b = NULL, *new_b = NULL, *e;
+
 	b = *ptr;
 	if (b && length)
 		p = *length;
