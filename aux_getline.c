@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+
 /**
  * input_buffer - Function that will print buffer chained commands.
  * @vars: struct variable contains arguements.
@@ -45,6 +46,7 @@ ssize_t input_buffer(var_s *vars, char **buf, size_t *len)
 	}
 	return (u);
 }
+
 /**
  * get_input - Function that will gets a line exempting the newline.
  * @vars: struct variable contains arguements.
@@ -85,6 +87,7 @@ ssize_t get_input(var_s  *vars)
 	*buf_p = buf;
 	return (u);
 }
+
 /**
  * read_b - Function that will reads into a buffer.
  * @vars: struct variable contains arguements.
@@ -104,6 +107,7 @@ ssize_t read_b(var_s *vars, char *buf, size_t *x)
 		*x = u;
 	return (u);
 }
+
 /**
  * _getlines - Function that will print the next line of input from STDIN.
  * @vars: struct variable contains arguement.
@@ -145,6 +149,7 @@ int _getlines(var_s *vars, char **ptr, size_t *length)
 	*ptr = b;
 	return (p);
 }
+
 /**
  * sig_handle - Function that will print a  blocked Ctrl + C.
  * @sig_num: signal number character.
