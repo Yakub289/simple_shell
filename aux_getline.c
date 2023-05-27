@@ -22,7 +22,7 @@ ssize_t input_buffer(var_s *vars, char **buf, size_t *len)
 		*buf = NULL;
 		signal(SIGINT, sig_handle);
 #if USE_GETLINE
-		u = getlines(buf, &len_num, stdin);
+		u = getline(buf, &len_num, stdin);
 #else
 		u = _getlines(vars, buf, &len_num);
 #endif
