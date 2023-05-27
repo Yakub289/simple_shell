@@ -21,7 +21,7 @@ int hsh(var_s *vars, char **av)
 	while (p != -1 && builtin_ret != -2)
 	{
 		erase_var(vars);
-		if (responsive(vars))
+		if (interactive(vars))
 			_puts("$ ");
 		_postchar(BUF_FLUSH);
 		p = get_input(vars);
@@ -32,13 +32,13 @@ int hsh(var_s *vars, char **av)
 			if (builtin_ret == -1)
 				get_cmd(vars);
 		}
-		else if (responsive(vars))
+		else if (interactive(vars))
 			_putchar('\n');
 		free_var(vars, 0);
 	}
 	write_hist(vars);
 	free_var(vars, 1);
-	if (!responsive(vars) && vars->status)
+	if (!interactive(vars) && vars->status)
 		exit(vars->status);
 	if (builtin_ret == -2)
 	{
@@ -87,7 +87,7 @@ int get_builtin(var_s *vars)
  * get_cmd - Write a command that find its PATH(Gateway).
  * @vars: struct variable.
  *
- * Return: Void.
+ * Return: void.
  */
 
 void get_cmd(var_s *vars)
@@ -115,7 +115,7 @@ void get_cmd(var_s *vars)
 	}
 	else
 	{
-		if ((responsive(vars) || _getenv(vars, "PATH=")
+		if ((interactive(vars) || _getenv(vars, "PATH=")
 			|| vars->argv[0][0] == '/') && syn_cmd(vars, vars->argv[0]))
 			fork_cmd(vars);
 		else if (*(vars->arg) != '\n')
@@ -130,7 +130,7 @@ void get_cmd(var_s *vars)
  * fork_cmd - A function that fork command to enable its running.
  * @vars: struct variable.
  *
- * Return: Void.
+ * Return: void.
  */
 
 void fork_cmd(var_s *vars)

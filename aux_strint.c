@@ -5,12 +5,12 @@
 #include <string.h>
 
 /**
- * responsive - Function that will print true when in interactive mode.
+ * interactive - Function that will print true when in interactive mode.
  * @vars: struct variable.
  *
  * Return: 1 if successfully activated interactive mode or 0 if failed.
  */
-int responsive(var_s *vars)
+int interactive(var_s *vars)
 {
 
 	return (isatty(STDIN_FILENO) && vars->read_fl <= 2);
