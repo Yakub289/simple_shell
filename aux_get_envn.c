@@ -24,22 +24,22 @@ char **get_envn(var_s *vars)
 /**
  * _unsetenv - Function that will print a deleted environment variable.
  * @vars: struct variable contains arguments.
- * @var: string character for environment.
+ * @stg: string character for environment.
  *
  * Return: 1 on delete or 0.
  */
-int _unsetenv(var_s *vars, char *var)
+int _unsetenv(var_s *vars, char *stg)
 {
 	list_t *node = vars->env;
 	size_t x = 0;
 	char *b;
 
-	if (!node || !var)
+	if (!node || !stg)
 		return (0);
 
 	while (node)
 	{
-		b = begin_at(node->str, var);
+		b = begin_at(node->str, stg);
 		if (b && *b == '=')
 		{
 			vars->env_change = del_node(&(vars->env), x);
@@ -57,30 +57,30 @@ int _unsetenv(var_s *vars, char *var)
 /**
  * _setenv - Function that will initialize a new environment variable.
  * @vars:struct contains arguments.
- * @var: string character in environment.
+ * @stg: string character in environment.
  * @value: string value in environment.
  *
  *  Return: Nothing 0.
  */
-int _setenv(var_s *vars, char *var, char *value)
+int _setenv(var_s *vars, char *stg, char *value)
 {
 	char *buf = NULL;
 	list_t *node;
 	char *b;
 
-	if (!var || !value)
+	if (!stg || !value)
 		return (0);
 
-	buf = malloc(_strlen(var) + _strlen(value) + 2);
+	buf = malloc(_strlen(stg) + _strlen(value) + 2);
 	if (!buf)
 		return (1);
-	_strcpy(buf, var);
+	_strcpy(buf, stg);
 	_strcat(buf, "=");
 	_strcat(buf, value);
 	node = vars->env;
 	while (node)
 	{
-		b = begin_at(node->str, var);
+		b = begin_at(node->str, stg);
 		if (b && *b == '=')
 		{
 			free(node->str);
